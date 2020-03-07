@@ -9,14 +9,16 @@
     "dev:watch": "nodemon",
     "prod": "NODE_ENV=production npm-run-all build server",
     "server": "node ./dist/bin/www",
-    "start": "npm run prod",
+    "start": "npm run dev:watch",
+    "start:prod": "npm run prod",
     "transpile": "babel ./server --out-dir dist"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "newsapi": "^2.4.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -33,6 +35,9 @@
   },
   "nodemonConfig": {
     "exec": "npm run dev",
-    "watch": ["server/*", "public/*"]
+    "watch": [
+      "server/*",
+      "public/*"
+    ]
   }
 }
