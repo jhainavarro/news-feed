@@ -27,6 +27,10 @@ router.get('/', (req, res, next) => {
   Object.keys(params)
     .forEach(key => params[key] === undefined && delete params[key]);
 
+  if (!params.sources) {
+    res.status(400).send('Please provide a news source to fetch from');
+  }
+
   newsApi.v2.everything(params)
     .then(result => {
       res.send(result);
