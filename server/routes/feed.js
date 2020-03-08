@@ -3,7 +3,7 @@ import NewsApi from 'newsapi';
 
 const router = express.Router();
 
-const newsApi = new NewsApi('0b76fba0aae94ffc8fad83f24d14237f');
+const newsApi = new NewsApi(process.env.NEWSAPI_ORG_API_KEY);
 
 router.get('/', (req, res, next) => {
   const { sources, pageSize, page } = req.query;
